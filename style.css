@@ -1,0 +1,27 @@
+* { box-sizing: border-box; }
+:root { color-scheme: light; }
+body { margin: 0; background: #f3f5f9; color: #182230; font-family: Inter, system-ui, -apple-system, Segoe UI, sans-serif; }
+.container { width: min(900px, calc(100% - 32px)); margin: 52px auto; }
+header { margin-bottom: 28px; }
+.eyebrow { color: #5264b5; font-size: 11px; font-weight: 800; letter-spacing: .13em; }
+h1 { margin: 8px 0; font-size: clamp(28px, 5vw, 42px); letter-spacing: -.04em; }
+header p { color: #5c6678; margin-top: 0; }
+.search, .results { background: white; border: 1px solid #e0e5ed; border-radius: 18px; padding: 24px; box-shadow: 0 8px 30px #26334d0a; }
+label { display: block; font-weight: 700; margin-bottom: 10px; }
+.searchrow { display: flex; gap: 10px; }
+input { flex: 1; min-width: 0; border: 1px solid #cbd3df; border-radius: 10px; padding: 13px 14px; font-size: 16px; outline-color: #5264b5; }
+button { border: 0; border-radius: 10px; padding: 0 22px; color: white; background: #3949ab; font-size: 15px; font-weight: 700; cursor: pointer; }
+button:hover { background: #2d3a8b; }
+small { display: block; color: #727d8f; margin-top: 10px; }
+.results { margin-top: 22px; }
+.resulthead { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 20px; }
+h2 { margin: 5px 0 0; font-size: 26px; }
+.pill { border-radius: 999px; background: #edf0ff; color: #3949ab; padding: 7px 12px; font-size: 12px; font-weight: 700; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.item { padding: 16px; border: 1px solid #e6eaf1; border-radius: 12px; min-width: 0; }
+.item span { display: block; color: #697487; font-size: 12px; margin-bottom: 7px; }
+.item strong { overflow-wrap: anywhere; font-size: 15px; }
+.note { background: #f7f8fb; border-left: 3px solid #8793c9; padding: 12px 14px; color: #525e70; line-height: 1.5; font-size: 13px; }
+.error { margin-top: 18px; background: #fff0f0; border: 1px solid #ffd2d2; color: #a32121; padding: 14px; border-radius: 10px; }
+footer { color: #788294; font-size: 12px; line-height: 1.5; margin: 22px 4px; }
+@media (max-width: 560px) { .container { margin: 28px auto; } .searchrow { flex-direction: column; } button { padding: 13px; } .grid { grid-template-columns: 1fr; } .resulthead { align-items: flex-start; flex-direction: column; } }

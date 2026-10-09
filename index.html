@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consulta de IP</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="eyebrow">HERRAMIENTA DE RED</div>
+      <h1>Consulta de dirección IP</h1>
+      <p>Consulta DNS inverso y metadatos públicos disponibles para una IP.</p>
+    </header>
+
+    <form method="post" class="search">
+      <label for="ip">Dirección IP</label>
+      <div class="searchrow">
+        <input id="ip" name="ip" value="{{ ip_value }}" placeholder="Ej. 8.8.8.8 o 192.168.1.20" required>
+        <button type="submit">Consultar</button>
+      </div>
+      <small>Usa únicamente direcciones que estés autorizado a consultar.</small>
+    </form>
+
+    {% if error %}
+      <div class="error">{{ error }}</div>
+    {% endif %}
+
+    {% if details %}
+      <section class="results">
+        <div class="resulthead">
+          <div><span class="eyebrow">RESULTADO</span><h2>{{ details.ip }}</h2></div>
+          <span class="pill">{{ details.alcance }}</span>
+        </div>
+        <div class="grid">
+          <div class="item"><span>Tipo</span><strong>{{ details.tipo }}</strong></div>
+          <div class="item"><span>Nombre DNS inverso</span><strong>{{ details.nombre_dns }}</strong></div>
+          <div class="item"><span>Ubicación aproximada</span><strong>{{ details.ubicacion }}</strong></div>
+          <div class="item"><span>Proveedor de Internet</span><strong>{{ details.proveedor }}</strong></div>
+          <div class="item"><span>Organización</span><strong>{{ details.organizacion }}</strong></div>
+          <div class="item"><span>ASN</span><strong>{{ details.asn }}</strong></div>
+          {% if details.alias_dns %}
+          <div class="item"><span>Alias DNS</span><strong>{{ details.alias_dns }}</strong></div>
+          {% endif %}
+        </div>
+        {% if details.nota %}<p class="note">{{ details.nota }}</p>{% endif %}
+      </section>
+    {% endif %}
+    <footer>Nota: el DNS inverso no es necesariamente el nombre del equipo. Esta herramienta no escanea puertos ni intenta acceder al dispositivo.</footer>
+  </main>
+</body>
+</html>
